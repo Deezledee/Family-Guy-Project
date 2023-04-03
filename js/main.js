@@ -12,13 +12,11 @@ function setup() {
     //canvas.parent('canvas');
     //textSize(40); 
     noCursor();
-    //game.draw()
-    
-   //player = new Player(500, 300, createImg('assets/peter-griffin-little.png'));
+    game.setup();
 
 }
 
 function draw() {
    // image(game.peterImage, mouseX, mouseY)
-  game.draw()
+  game.draw();
 }

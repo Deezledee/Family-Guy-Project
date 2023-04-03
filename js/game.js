@@ -7,6 +7,7 @@ class Game {
       this.peterLaugh;
       this.quagmireSound;
       this.stewieSound;
+      this.player;
     }
   
     preload() {
@@ -18,6 +19,10 @@ class Game {
       this.stewieSound = createAudio('assets/stewie-loser.mp3');
     }
   
+    setup() {
+        this.player = new Player(500, 300, this.peterImage);
+    }
+
     draw() {
 
         
@@ -27,7 +32,10 @@ class Game {
       if (keyIsPressed && key === 'p') {
         this.peterLaugh.play();
       }
-      image(game.peterImage, mouseX, mouseY)
+      
+      this.player.updatePosition(mouseX, mouseY);
+      this.player.draw();
+      //image(this.peterImage, mouseX, mouseY)
 
     }
   }

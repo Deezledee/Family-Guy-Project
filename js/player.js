@@ -1,18 +1,20 @@
 class Player {
-	constructor(peterImage) {
-		this.width = 100
-		this.height = 140
-		this.x = 0
-		this.y = 0
+	constructor(x, y, peterImage) {
+		this.width = 100;
+		this.height = 140;
+		this.x = x;
+		this.y = y;
         this.peterImage = peterImage;
 
 	}
 
-	draw() {
-	
-
-		
-
-        image(this.peterImage, 0, 0, width, height); }
+	updatePosition(x, y) {
+		this.x = x;
+		this.y = y;
 	}
+
+	draw() {
+        image(this.peterImage, this.x, this.y);
+	}
+}
 
