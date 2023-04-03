@@ -3,13 +3,23 @@ class Obstacle {
         this.width = 108;
         this.height = 160;
         this.x = x;
-        this.y = 0;
+        this.y = -100;
         this.megImage = megImage;
+        this.active = false;
     }
 
-    draw() {
-        
+    activate() {
+        this.active = true;
     }
+
+	fall() {
+		this.y++;
+	}
+
+	draw() {
+        if (this.active) this.fall();
+        image(this.megImage, this.x, this.y);
+	}
 
     collision(playerInfo) {
         // console.log("collision")
