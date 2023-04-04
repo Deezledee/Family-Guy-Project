@@ -1,15 +1,12 @@
 class Game {
     constructor() {
       this.backgroundImage;
-      this.peterImage;
-      this.obstacles = [];
-      this.megImage;
+      this.megs = [];
       this.peterLaugh;
       this.quagmireSound;
       this.stewieSound;
-      this.player;
-      this.meg;
       this.megCounter = 0;
+      this.player = new Player(500,300)
     }
   
     preload() {
@@ -21,11 +18,6 @@ class Game {
       this.stewieSound = createAudio('assets/stewie-loser.mp3');
     }
   
-    setup() {
-        this.player = new Player(500, 300, this.peterImage);
-        this.meg = new Obstacle(200, this.megImage);
-        ////create a for loop with 100 megs
-    }
 
     draw() {
 /////// check the frameCount. For every 90 frames, make another meg active, megCounter++
@@ -39,19 +31,36 @@ class Game {
       }
       
       // check collision
-      const playerInfo = this.player.getInfo();
-      const collision = this.meg.collision(playerInfo);
-      if (collision) {
-        this.player.kill();
-      }
+      //const playerInfo = this.player.getInfo();
+      //const collision = this.meg.collision(playerInfo);
+      //if (collision) {
+        //this.player.kill();
+      //}
 
+      if(frameCount % 90 === 0) {
+        console.log(this.megs);
+        this.megs.push(new Obstacle(random(width)) )
+    }
+    this.megs.forEach(function (meg) {
+        meg.draw()
+     } )
       // update player position according to the cursor position
       this.player.updatePosition(mouseX, mouseY);
       this.player.draw();
 
-      // multiple megs
-      this.meg.draw();
+      //const collision = this.meg.collision(playerInfo);
+      this.megs = this.megs.filter(meg => {
+     //   console.log(this)
 
+        if (meg.collision(this.player) || meg.y > windowHeight) {
+            return false
+        } else {
+            return true
+        }
+    })
+}
+
+    
     }
-  }
+  
   

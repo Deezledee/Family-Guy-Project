@@ -1,11 +1,12 @@
 class Player {
-	constructor(x, y, peterImage) {
+	constructor(x, y) {
 		this.width = 100;
 		this.height = 140;
 		this.x = x;
 		this.y = y;
-        this.peterImage = peterImage;
+        //this.peterImage = peterImage;
 		this.alive = true;
+		this.life = 3;
 	}
 
 	getInfo() {
@@ -32,7 +33,7 @@ class Player {
 	}
 
 	draw() {
-        image(this.peterImage, this.x, this.y);
+        image(game.peterImage, this.x, this.y, this.width, this.height);
 	}
 }
 

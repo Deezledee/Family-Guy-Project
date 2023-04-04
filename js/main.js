@@ -9,10 +9,10 @@ function preload() {
 // Setup game
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
+    
     //canvas.parent('canvas');
     //textSize(40); 
     noCursor();
-    game.setup();
 
 }
 
