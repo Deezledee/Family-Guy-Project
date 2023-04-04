@@ -4,9 +4,7 @@ class Player {
 		this.height = 140;
 		this.x = x;
 		this.y = y;
-        //this.peterImage = peterImage;
 		this.alive = true;
-		this.life = 3;
 	}
 
 	getInfo() {
@@ -30,10 +28,20 @@ class Player {
 			this.x = -200;
 			this.y = -200;
 		}
-	}
+ }
+
+  
+  
+
+	//hearts() {
+	//	if (game.meg.collision(this.player)) {
+      //   game.lives--;
+	//	}
+	//}
 
 	draw() {
         image(game.peterImage, this.x, this.y, this.width, this.height);
+		
 	}
 }
 

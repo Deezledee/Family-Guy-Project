@@ -4,19 +4,12 @@ class Obstacle {
         this.height = 160;
         this.x = x;
         this.y = -100;
-        //this.megImage = megImage;
-        //this.active = false;
     }
 
-    //activate() {
-    //    this.active = true;
-    //}
-
-	
+    
 
 	draw() {
         this.y += 4
-        //if (this.active) this.fall();
         image(game.megImage, this.x, this.y, this.width, this.height);
 	}
 
@@ -31,7 +24,18 @@ class Obstacle {
         let playerY = playerInfo.y + playerInfo.height / 2;
         
         // dist(x1, y1, x2, y2) returns the distance between the objects
-        return dist(megX, megY, playerX, playerY) <= 70;
+        if(dist(megX, megY, playerX, playerY) <= 70) {
+            game.lives--;
+
+            if(game.lives <= 0){
+            game.checkLives();   
+               }
+               return true;
+   
+        }
+
+       
+            
 
     }
 

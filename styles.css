@@ -220,5 +220,11 @@ ul {
     padding-left: 0;
 }
 
-  /* index.html */
-
+#score {
+  font-size: 30px;
+  font-weight: 800;
+  font-family: "Courgette", cursive;
+  text-align: center;
+  background-color: #17DD53;
+  margin: 0;
+}
