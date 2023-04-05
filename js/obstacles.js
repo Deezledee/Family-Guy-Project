@@ -27,15 +27,10 @@ class Obstacle {
         if(dist(megX, megY, playerX, playerY) <= 70) {
             game.lives--;
 
-            if(game.lives <= 0){
-            game.checkLives();   
-               }
-               return true;
-   
+         return true;
         }
 
-       
-            
+       return false;        
 
     }
 

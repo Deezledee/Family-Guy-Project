@@ -38,11 +38,12 @@ class Game {
       this.peterLaugh.stop();
     }
 
+    //COUNTDOWN TIMER
     textAlign(CENTER, CENTER);
     textSize(100);
     text(this.timer, (width / 5) * 4.7, height / 12);
 
-    //COUNTDOWN TIMER
+    
     if (frameCount % 60 == 0 && this.timer > 0) {
       // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
       this.timer--;
@@ -60,12 +61,8 @@ class Game {
       noLoop();
     }
 
-    for (let i = 0; i < this.lives; i++) {
-      let x = i * (width / 17);
-      image(this.peterLife, x, 0, 75, 75);
-    }
 
-    if (frameCount % 90 === 0) {
+    if (frameCount % 60 === 0) {
       console.log(this.megs);
       this.megs.push(new Obstacle(random(width)));
     }
@@ -83,6 +80,13 @@ class Game {
         return true;
       }
     });
+
+    for (let i = 0; i < this.lives; i++) {
+      let x = i * (width / 17);
+      image(this.peterLife, x, 0, 75, 75);
+    }
+
+    this.checkLives()
   }
 
   checkLives() {
