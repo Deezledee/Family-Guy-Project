@@ -10,10 +10,11 @@ class Game {
     this.youWonImage;
     this.stewieSound;
     this.megSound;
-    this.megCounter = 0;
     this.player = new Player(500, 300);
     this.lives = 3;
     this.timer = 60;
+    this.speedMeg;
+    let startOverButton;
   }
 
   preload() {
@@ -46,6 +47,19 @@ class Game {
     text(this.timer, (width / 5) * 4.7, height / 12);
 
     
+    if (this.timer >= 40) {
+      this.speedMeg = 90; // set min frameCount level
+    } else if (this.timer < 40 && this.timer >= 20) {
+      this.speedMeg = 35; // set intermediate frameCount level
+    } else if (this.timer < 20) {
+      this.speedMeg = 15; // set initial frameCount level
+    }
+
+
+
+
+
+
     if (frameCount % 60 == 0 && this.timer > 0) {
       // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
       this.timer--;
@@ -58,14 +72,19 @@ class Game {
       textSize(100);
       textAlign(CENTER, CENTER);
       text("YOU WON!", width / 2, height / 2);
+      this.startOverButton = createButton("Start Over");
+      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 2);
+      this.startOverButton.class("startOver");
+      this.startOverButton.mousePressed(function() {
+      window.location.href = "game.html"; 
+    });
       this.quagmireSound.play();
       this.peterLaugh.stop();
       noLoop();
     }
 
-
-    if (frameCount % 60 === 0) {
-      console.log(this.megs);
+    
+    if (frameCount % this.speedMeg === 0) {
       this.megs.push(new Obstacle(random(width)));
     }
     this.megs.forEach(function (meg) {
@@ -100,6 +119,12 @@ class Game {
       textSize(100);
       textAlign(CENTER, CENTER);
       text("YOU LOST!", width / 2, height / 2);
+      this.startOverButton = createButton("Start Over");
+      this.startOverButton.position(width / 2 - 150 - this.startOverButton.width, height / 2);
+      this.startOverButton.class("startOver");
+      this.startOverButton.mousePressed(function() {
+      window.location.href = "game.html"; 
+    });
       this.stewieSound.play();
       this.megSound.stop();
       this.peterLaugh.stop();

@@ -11,7 +11,7 @@ function preload() {
 // Setup game
 function setup() {
 	let canvas = createCanvas(windowWidth, windowHeight);
-    frameRate(30)
+    frameRate(60)
     
     //canvas.parent('canvas');
     //textSize(40); 
