@@ -9,6 +9,7 @@ class Game {
     this.quagmireImage;
     this.youWonImage;
     this.stewieSound;
+    this.megSound;
     this.megCounter = 0;
     this.player = new Player(500, 300);
     this.lives = 3;
@@ -26,6 +27,7 @@ class Game {
     this.peterLaugh = createAudio("assets/peter-griffin-hehe.mp3");
     this.quagmireSound = createAudio("assets/quagmire-giggity.mp3");
     this.stewieSound = createAudio("assets/stewie-loser.mp3");
+    this.megSound = createAudio("assets/meg-upset.mp3");
   }
 
   draw() {
@@ -99,6 +101,7 @@ class Game {
       textAlign(CENTER, CENTER);
       text("YOU LOST!", width / 2, height / 2);
       this.stewieSound.play();
+      this.megSound.stop();
       this.peterLaugh.stop();
       noLoop();
     }

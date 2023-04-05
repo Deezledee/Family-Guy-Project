@@ -26,6 +26,7 @@ class Obstacle {
         // dist(x1, y1, x2, y2) returns the distance between the objects
         if(dist(megX, megY, playerX, playerY) <= 70) {
             game.lives--;
+            game.megSound.play();
 
          return true;
         }
@@ -33,5 +34,7 @@ class Obstacle {
        return false;        
 
     }
+
+    
 
 }
