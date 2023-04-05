@@ -31,13 +31,6 @@ class Player {
  }
 
   
-  
-
-	//hearts() {
-	//	if (game.meg.collision(this.player)) {
-      //   game.lives--;
-	//	}
-	//}
 
 	draw() {
         image(game.peterImage, this.x, this.y, this.width, this.height);

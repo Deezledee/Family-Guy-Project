@@ -108,6 +108,8 @@ class Game {
       this.quagmireSound.play();
       this.peterLaugh.stop();
       noLoop();
+      noCursor();
+      cursor(this.peterImage, mouseX, mouseY);
     }
 
   }
@@ -133,6 +135,9 @@ class Game {
       this.megSound.stop();
       this.peterLaugh.stop();
       noLoop();
+      noCursor();
+      cursor(this.peterImage, mouseX, mouseY);
+
     }
   }
 }
