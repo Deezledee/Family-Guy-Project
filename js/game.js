@@ -64,25 +64,7 @@ class Game {
       // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
       this.timer--;
     }
-    if (this.timer == 0) {
-      image(this.quagmireImage, width / 2 - 250, height / 2 - 250, 500, 500);
-      fill("#FFFF00");
-      stroke("#000000");
-      strokeWeight(8);
-      textSize(100);
-      textAlign(CENTER, CENTER);
-      text("YOU WON!", width / 2, height / 2);
-      this.startOverButton = createButton("Start Over");
-      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 2);
-      this.startOverButton.class("startOver");
-      this.startOverButton.mousePressed(function() {
-      window.location.href = "game.html"; 
-    });
-      this.quagmireSound.play();
-      this.peterLaugh.stop();
-      noLoop();
-    }
-
+  
     
     if (frameCount % this.speedMeg === 0) {
       this.megs.push(new Obstacle(random(width)));
@@ -108,7 +90,29 @@ class Game {
     }
 
     this.checkLives()
+
+    if (this.timer == 0) {
+      image(this.quagmireImage, width / 2 - 250, height / 2 - 250, 500, 500);
+      fill("#FFFF00");
+      stroke("#000000");
+      strokeWeight(8);
+      textSize(100);
+      textAlign(CENTER, CENTER);
+      text("YOU WON!", width / 2, height / 2);
+      this.startOverButton = createButton("Start Over");
+      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 2);
+      this.startOverButton.class("startOver");
+      this.startOverButton.mousePressed(function() {
+      window.location.href = "game.html"; 
+    });
+      this.quagmireSound.play();
+      this.peterLaugh.stop();
+      noLoop();
+    }
+
   }
+
+
 
   checkLives() {
     if (this.lives <= 0) {
