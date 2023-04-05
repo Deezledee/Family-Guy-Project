@@ -12,7 +12,7 @@ class Game {
       this.megCounter = 0;
       this.player = new Player(500,300)
       this.lives = 3;
-      this.timer = 5;
+      this.timer = 10;
         }
   
     preload() {
