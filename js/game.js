@@ -45,7 +45,6 @@ class Game {
     textSize(100);
     text(this.timer, (width / 5) * 4.7, height / 12);
 
-    
     if (this.timer >= 40) {
       this.speedMeg = 90; // set min frameCount level
     } else if (this.timer < 40 && this.timer >= 20) {
@@ -54,17 +53,11 @@ class Game {
       this.speedMeg = 15; // set initial frameCount level
     }
 
-
-
-
-
-
     if (frameCount % 60 == 0 && this.timer > 0) {
       // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
       this.timer--;
     }
-  
-    
+
     if (frameCount % this.speedMeg === 0) {
       this.megs.push(new Obstacle(random(width)));
     }
@@ -88,7 +81,7 @@ class Game {
       image(this.peterLife, x, 0, 75, 75);
     }
 
-    this.checkLives()
+    this.checkLives();
 
     if (this.timer == 0) {
       image(this.quagmireImage, width / 2 - 250, height / 2 - 250, 500, 500);
@@ -99,27 +92,30 @@ class Game {
       textAlign(CENTER, CENTER);
       text("YOU WON!", width / 2, height / 2);
       this.startOverButton = createButton("Start Over");
-      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 2.3);
+      this.startOverButton.position(
+        width / 2 - 250 - this.startOverButton.width,
+        height / 2.3
+      );
       this.startOverButton.class("startOver");
-      this.startOverButton.mousePressed(function() {
-      window.location.href = "game.html"; 
-    });
-    this.backToMenu = createButton("Back To Menu");
-    this.backToMenu.position(width / 2 - 250 - this.backToMenu.width, height / 1.9);
-    this.backToMenu.class("backToMenu");
-    this.backToMenu.mousePressed(function() {
-    window.location.href = "index.html"; 
-  });
+      this.startOverButton.mousePressed(function () {
+        window.location.href = "game.html";
+      });
+      this.backToMenu = createButton("Back To Menu");
+      this.backToMenu.position(
+        width / 2 - 250 - this.backToMenu.width,
+        height / 1.9
+      );
+      this.backToMenu.class("backToMenu");
+      this.backToMenu.mousePressed(function () {
+        window.location.href = "index.html";
+      });
       this.quagmireSound.play();
       this.peterLaugh.stop();
       noLoop();
       noCursor();
       cursor(this.peterImage, mouseX, mouseY);
     }
-
   }
-
-
 
   checkLives() {
     if (this.lives <= 0) {
@@ -131,24 +127,29 @@ class Game {
       textAlign(CENTER, CENTER);
       text("YOU LOST!", width / 2, height / 2);
       this.startOverButton = createButton("Start Over");
-      this.startOverButton.position(width / 2 - 150 - this.startOverButton.width, height / 2.2);
+      this.startOverButton.position(
+        width / 2 - 150 - this.startOverButton.width,
+        height / 2.2
+      );
       this.startOverButton.class("startOver");
-      this.startOverButton.mousePressed(function() {
-      window.location.href = "game.html"; 
-    })
+      this.startOverButton.mousePressed(function () {
+        window.location.href = "game.html";
+      });
       this.backToMenu = createButton("Back To Menu");
-      this.backToMenu.position(width / 2 - 150 - this.backToMenu.width, height / 1.8);
+      this.backToMenu.position(
+        width / 2 - 150 - this.backToMenu.width,
+        height / 1.8
+      );
       this.backToMenu.class("backToMenu");
-      this.backToMenu.mousePressed(function() {
-      window.location.href = "index.html"; 
-    });
+      this.backToMenu.mousePressed(function () {
+        window.location.href = "index.html";
+      });
       this.stewieSound.play();
       this.megSound.stop();
       this.peterLaugh.stop();
       noLoop();
       noCursor();
       cursor(this.peterImage, mouseX, mouseY);
-
     }
   }
 }
