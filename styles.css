@@ -370,3 +370,13 @@ margin-top: 10vh;
   touch-action: manipulation; 
   cursor: pointer;
 }
+
+.credits {
+  color: #000000;
+  font-family: "Courgette", cursive;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 0;
+  font-size: 20px; 
+  font-weight: bold; 
+}
