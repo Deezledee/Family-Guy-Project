@@ -7,7 +7,6 @@ class Game {
     this.quagmireSound;
     this.stewieImage;
     this.quagmireImage;
-    this.youWonImage;
     this.stewieSound;
     this.megSound;
     this.player = new Player(500, 300);
