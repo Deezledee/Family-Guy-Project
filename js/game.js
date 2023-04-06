@@ -12,15 +12,15 @@ class Game {
     this.megSound;
     this.player = new Player(500, 300);
     this.lives = 3;
-    this.timer = 60;
+    this.timer = 10;
     this.speedMeg;
     let startOverButton;
+    let backToMenu;
   }
 
   preload() {
     this.backgroundImage = loadImage("assets/griffins-livingroom.png");
     this.peterImage = loadImage("assets/peter-griffin-little.png");
-    this.youWonImage = loadImage("assets/you-won.png");
     this.megImage = loadImage("assets/meg-griffin-little.png");
     this.stewieImage = loadImage("assets/stewie-griffin-little.png");
     this.quagmireImage = loadImage("assets/quagmire-little.png");
@@ -105,6 +105,12 @@ class Game {
       this.startOverButton.mousePressed(function() {
       window.location.href = "game.html"; 
     });
+    this.backToMenu = createButton("Back To Menu");
+    this.backToMenu.position(width / 2 - 250 - this.backToMenu.width, height / 1.7);
+    this.backToMenu.class("backToMenu");
+    this.backToMenu.mousePressed(function() {
+    window.location.href = "index.html"; 
+  });
       this.quagmireSound.play();
       this.peterLaugh.stop();
       noLoop();
@@ -130,6 +136,12 @@ class Game {
       this.startOverButton.class("startOver");
       this.startOverButton.mousePressed(function() {
       window.location.href = "game.html"; 
+    })
+      this.backToMenu = createButton("Back To Menu");
+      this.backToMenu.position(width / 2 - 150 - this.backToMenu.width, height / 1.7);
+      this.backToMenu.class("backToMenu");
+      this.backToMenu.mousePressed(function() {
+      window.location.href = "index.html"; 
     });
       this.stewieSound.play();
       this.megSound.stop();
