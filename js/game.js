@@ -100,13 +100,13 @@ class Game {
       textAlign(CENTER, CENTER);
       text("YOU WON!", width / 2, height / 2);
       this.startOverButton = createButton("Start Over");
-      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 4.5);
+      this.startOverButton.position(width / 2 - 250 - this.startOverButton.width, height / 2.3);
       this.startOverButton.class("startOver");
       this.startOverButton.mousePressed(function() {
       window.location.href = "game.html"; 
     });
     this.backToMenu = createButton("Back To Menu");
-    this.backToMenu.position(width / 2 - 250 - this.backToMenu.width, height / 4);
+    this.backToMenu.position(width / 2 - 250 - this.backToMenu.width, height / 1.9);
     this.backToMenu.class("backToMenu");
     this.backToMenu.mousePressed(function() {
     window.location.href = "index.html"; 
@@ -132,13 +132,13 @@ class Game {
       textAlign(CENTER, CENTER);
       text("YOU LOST!", width / 2, height / 2);
       this.startOverButton = createButton("Start Over");
-      this.startOverButton.position(width / 2 - 150 - this.startOverButton.width, height / 2);
+      this.startOverButton.position(width / 2 - 150 - this.startOverButton.width, height / 2.2);
       this.startOverButton.class("startOver");
       this.startOverButton.mousePressed(function() {
       window.location.href = "game.html"; 
     })
       this.backToMenu = createButton("Back To Menu");
-      this.backToMenu.position(width / 2 - 150 - this.backToMenu.width, height / 1.7);
+      this.backToMenu.position(width / 2 - 150 - this.backToMenu.width, height / 1.8);
       this.backToMenu.class("backToMenu");
       this.backToMenu.mousePressed(function() {
       window.location.href = "index.html"; 
