@@ -16,9 +16,6 @@ class Player {
 		};
 	}
 
-	kill() {
-		this.alive = false;
-	}
 
 	updatePosition(x, y) {
 		if (this.alive) {
